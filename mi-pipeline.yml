@@ -19,7 +19,7 @@ steps:
 
 - script: |
    echo "clonando sitio web"
-   git clone https://github.com/alejandro3FX/mi-webpage.git web   
+   git clone https://github.com/SebastianGonzalezMorales/Netlify.git web   
 
    echo "creando carpeta en un nivel más atrás"
    mkdir ./../web   
