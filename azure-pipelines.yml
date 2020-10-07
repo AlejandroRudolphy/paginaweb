@@ -23,7 +23,7 @@ steps:
    git config --global user.email "sebastian.gonzalez@alumnos.uv.cl"
    git config --global user.name "SebastianGonzalezMorales"
    echo "clonando página web"
-   git clone https://github.com/SebastianGonzalezMorales/Netlify.git web
+   git clone https://github.com/alejandro3FX/mi-webpage.git web
    mkdir ./../web
    mv web/* ./../web
    echo "creando carpetas estáticas"
