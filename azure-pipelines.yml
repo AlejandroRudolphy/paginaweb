@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- draft
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -22,7 +22,7 @@ steps:
    
    git config --global user.email "sebastian.gonzalezg@alumnos.uv.cl"
    git config --global user.name "SebastianGonzalezMorales"
-   git clone https://github.com/alejandro3FX/mi-webpage.git web   
+   git clone https://github.com/SebastianGonzalezMorales/Netlify.git web   
    echo "creando carpeta en un nivel más atrás"
    mkdir ./../web   
    echo "moviendo sitio web"
