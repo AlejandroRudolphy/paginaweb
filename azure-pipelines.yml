@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- draft
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -18,23 +18,21 @@ steps:
 # fin nodejs
 
 - script: |
-   echo "configurando git"
+   echo "clonando sitio web"
    
-   git config --global user.email "sebastian.gonzalez@alumnos.uv.cl"
+   git config --global user.email "sebastian.gonzalezg@alumnos.uv.cl"
    git config --global user.name "SebastianGonzalezMorales"
-   echo "clonando página web"
-   git clone https://github.com/alejandro3FX/mi-webpage.git web
-   mkdir ./../web
+   git clone https://github.com/alejandro3FX/mi-webpage.git web   
+   echo "creando carpeta en un nivel más atrás"
+   mkdir ./../web   
+   echo "moviendo sitio web"
    mv web/* ./../web
-   echo "creando carpetas estáticas"
-   mkdir ./../web/static
-   mkdir ./../web/static/.attachments
+   echo "creando carpetas estáticas"     
    mkdir ./../web/content
-   
-   echo "copiando contenido"
-   mv ./.attachnents/* ./../web/static/.attachments
+   echo "copiando contenido"   
    mv ./* ./../web/content
    mkdir web
+   echo "ubicando toda la web mezclada en carpeta web"
    mv ./../web/* ./web
    
    
