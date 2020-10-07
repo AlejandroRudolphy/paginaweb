@@ -20,14 +20,13 @@ steps:
 - script: |
    echo "clonando sitio web"
    git clone https://github.com/SebastianGonzalezMorales/Netlify.git web   
-
-   echo "creando carpeta en un nivel más atrás"
-   mkdir ./../web   
+   echo "creando carpetas un nivel más atrás"
+   mkdir ./../web
    echo "moviendo sitio web"
    mv web/* ./../web
-   echo "creando carpetas estáticas"     
+   echo "creando carpetas estáticas"
    mkdir ./../web/content
-   echo "copiando contenido"   
+   echo "copiando contenido"
    mv ./* ./../web/content
    mkdir web
    echo "ubicando toda la web mezclada en carpeta web"
@@ -78,3 +77,20 @@ steps:
     workingDirectory: '$(Build.SourcesDirectory)/web'
   displayName: 'gatsby build'
 #fin gatsby build
+
+#copiando archivos a salida
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/web/public'
+    Contents: '**'
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+    CleanTargetFolder: true
+#fin copiando archivos a salida
+
+#publicando artifacts
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: 'drop'
+    publishLocation: 'container'
+#fin publicando artifacts
