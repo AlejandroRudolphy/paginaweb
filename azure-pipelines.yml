@@ -50,6 +50,7 @@ steps:
     useLegacyPattern: false
     enableTelemetry: false
 
+
 #instalando gatsby
 - script: |   
     npm install -g gatsby-cli
@@ -95,4 +96,3 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'container'
 #fin publicando artifacts
-
