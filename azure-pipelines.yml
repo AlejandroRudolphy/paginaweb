@@ -18,18 +18,23 @@ steps:
 # fin nodejs
 
 - script: |
-   echo "clonando sitio web"
-   git clone https://github.com/SebastianGonzalezMorales/Netlify.git web   
-   echo "creando carpetas un nivel más atrás"
+   echo "configurando git"
+   
+   git config --global user.email "sebastian.gonzalez@alumnos.uv.cl"
+   git config --global user.name "SebastianGonzalezMorales"
+   echo "clonando página web"
+   git clone https://github.com/SebastianGonzalezMorales/Netlify.git web
    mkdir ./../web
-   echo "moviendo sitio web"
    mv web/* ./../web
    echo "creando carpetas estáticas"
+   mkdir ./../web/static
+   mkdir ./../web/static/.attachments
    mkdir ./../web/content
+   
    echo "copiando contenido"
+   mv ./.attachnents/* ./../web/static/.attachments
    mv ./* ./../web/content
    mkdir web
-   echo "ubicando toda la web mezclada en carpeta web"
    mv ./../web/* ./web
    
    
