@@ -78,20 +78,3 @@ steps:
     workingDirectory: '$(Build.SourcesDirectory)/web'
   displayName: 'gatsby build'
 #fin gatsby build
-
-#copiando archivos a salida
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/web/public'
-    Contents: '**'
-    TargetFolder: $(Build.ArtifactStagingDirectory)
-    CleanTargetFolder: true
-#fin copiando archivos a salida
-
-#publicando artifacts
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
-    ArtifactName: 'drop'
-    publishLocation: 'container'
-#fin publicando artifacts
